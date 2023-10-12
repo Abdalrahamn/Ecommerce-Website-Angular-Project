@@ -1,2 +1,1 @@
-# Ecommerce-Website-Angular-Project
-this an Ecommerce website made by Angular , html , scss , bootstrap, typescript and it's provide Registration and login and add to cart and add to favourite and make you buy and use full authentication api and  data for api and all the website.
+this an e-commerce website made with Angular, HTML, SCSS, bootstrap, and typescript it provides Registration and login, add to cart and add to favorite, and makes you buy and use full authentication API and data for API and all the websites.
