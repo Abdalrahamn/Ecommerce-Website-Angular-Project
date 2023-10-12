@@ -1,0 +1,20 @@
+<section *ngIf="!loading">
+    <div class="myContainer">
+        <div class="row g-4 my-1">
+            <div *ngFor="let product of CategoriesData" class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="prodBrdr  rounded shadow p-2">
+
+                    <div>
+                        <img [src]="product.image" alt="" class="w-100 fixed-height" >
+    
+                        <div class="productdetials">
+                            <h4 class="h6 text-main mt-2 text-center">{{product.name}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-loader *ngIf="loading"></app-loader>

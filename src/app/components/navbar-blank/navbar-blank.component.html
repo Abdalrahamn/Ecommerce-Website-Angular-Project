@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="Home">
+          <img src="./assets/Images_assets/freshcart-logo.svg" alt="">
+      </a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="Home" routerLinkActive="active-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Products" routerLinkActive="active-link">Products</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="Categories" routerLinkActive="active-link">Categories</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="Brands" routerLinkActive="active-link">Brands</a>
+              </li>
+
+          </ul>
+
+          <ul class="navbar-nav mt-2 mt-lg-0 align-items-center d-flex  ">
+
+              <li class="nav-item me-3">
+                  <a class="text-dark me-4 cursor-pointer fs-3 " routerLink="wishlist" routerLinkActive="active"><i class="fa-solid fa-heart">
+                    <span role="button" #addWish class=" num-size top-4 position-absolute translate-middle badge rounded-pill bg-main">
+                        
+                    </span></i>
+                  </a>
+              </li>
+              <li class="nav-item me-3">
+                <a class="text-dark me-4 cursor-pointer fs-4 " routerLink="Cart" routerLinkActive="active"><i class="fa-solid fa-cart-shopping">
+                    <span class=" num-size top-4 position-absolute translate-middle badge rounded-pill bg-main">
+                      {{countCartItems}}
+                    </span></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="text-dark me-3 cursor-pointer" target="_blank" href="https://www.facebook.com/profile.php?id=100009405839587"><i class="fab fa-facebook"></i></a>
+                <a class="text-dark me-3 cursor-pointer" target="_blank" href="https://www.instagram.com/abdalrahman_mahfouz/"><i class="fab fa-instagram"></i></a>
+                <a class="text-dark me-3 cursor-pointer" target="_blank" href="https://www.linkedin.com/in/abdalrahman-e-mahfouz-646ab71a9/"><i class="fab fa-linkedin"></i></a>
+                <a class="text-dark me-3 cursor-pointer" target="_blank" href="https://api.whatsapp.com/send?phone=201096437158&text=%D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B7%3A%0Ahttps%3A%2F%2Ffb.me%2F4K30rfJvg%0A%0A%D8%B1%D8%A3%D9%8A%D8%AA%20%D9%87%D8%B0%D8%A7%20%D8%B9%D9%84%D9%89%20%D9%81%D9%8A%D8%B3%D8%A8%D9%88%D9%83...&app=facebook&fbclid=IwAR2t8Edu8MKyXql_vx9hV0KMHuOTi08CZ1bt7OHq5aGlSwAddW6s4zzQN6I"><i class="fab fa-whatsapp"></i></a>
+              </li>
+
+              <li class="nav-item" (click)="SignOut()">
+                  <span role="button">SignOut</span>
+              </li>
+          </ul>
+      </div>
+</div>
+</nav>
+

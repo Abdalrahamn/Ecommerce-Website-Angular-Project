@@ -1,0 +1,17 @@
+<form [formGroup]="checkForm" (ngSubmit)="onSubmit()" class="rounded shadow w-50 mx-auto bg-main-light p-3 mt-3">
+  <div class="form-item mt-1">
+    <label for="details">Details</label>
+    <input type="text" id="details" formControlName="details" class="form-control mt-1" />
+  </div>
+  <div class="form-item mt-1">
+    <label for="phone">Phone</label>
+    <input type="phone" id="phone" formControlName="phone" class="form-control mt-1" />
+  </div>
+  <div class="form-item mt-1">
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city" class="form-control mt-1" />
+  </div>
+
+  <button type="submit" class="btn main-btn text-main py-2 mt-3">CheckOut</button>
+</form>
+

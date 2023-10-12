@@ -1,0 +1,61 @@
+<!-- will print every thing about the order -->
+<!-- 
+    totalOrderPrice ||  paymentMethodType ||  isPaid ||  isDelivered ||  createdAt || 
+     shippingAddress.phone ||  shippingAddress.details ||  shippingAddress.city ||  
+     cartItems.price ||  cartItems.count
+
+ -->
+
+<section *ngIf="!loading">
+    <h3 class="h5 fw-bold mt-4 text-center">All Orders</h3>
+    <div class="container prodBrdr my-4 rounded shadow p-2"  *ngFor="let order of allOrders">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="my-3 table  rounded p-2" >
+                    <thead>
+                        <tr>
+                            <th scope="col"><i class="me-2 main-color fa-solid fa-coins"></i>Total Price</th>
+                            <th scope="col"><i class="me-2 main-color fa-solid fa-credit-card"></i>Payment Method</th>
+                            <th scope="col"><i class="me-2 main-color fa-solid fa-money-bill"></i>Paid</th>
+                            <th scope="col"><i class="me-2 main-color fa-solid fa-truck"></i>Delivered</th>
+                            <th scope="col"><i class="me-2 main-color fa-regular fa-calendar-days"></i>date</th>
+                            <th scope="col"><i class="me-2 main-color fa-solid fa-location-dot"></i>Shipping Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{order.totalOrderPrice | currency:'EGP'}}</td>
+                            <td>{{order.paymentMethodType}}</td>
+                            <td> <p *ngIf="order.isPaid">paid</p><p *ngIf="!order.isPaid">Not paid</p></td>
+                            <td> <p *ngIf="order.isDelivered">Delivered</p><p *ngIf="!order.isDelivered">Not Delivered</p></td>
+                            <td>{{order.createdAt | date}}</td>
+                            <td>
+                                <p>Phone: {{order.shippingAddress.phone}}</p>
+                                <p>Details: {{order.shippingAddress.details}}</p>
+                                <p>City: {{order.shippingAddress.city}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div height="120" *ngFor="let products of order.cartItems" class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class=" rounded p-2">
+                    <div role="button" [routerLink]="['/Details',products._id]">
+                        <img [src]="products.product.imageCover" alt="" class="w-100 fixed-height" >
+    
+                        <div class="productdetials">
+                            <h4 class="h6 text-main mt-2">{{products.product.category.name}}</h4>
+                            <h3 class="h6">{{products.product.title | cuttext}}</h3>
+                        </div>
+                        <div class=" d-flex justify-content-between align-items-center ">
+                            <span>{{products.price | currency:'EGP'}}</span>
+                            <span> <i class="fas fa-star rating-color"></i> {{products.product.ratingsAverage}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>
+
+ <app-loader *ngIf="loading"></app-loader>

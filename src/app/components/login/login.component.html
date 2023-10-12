@@ -1,0 +1,35 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="handleLogin()" class="rounded shadow w-75 mx-auto bg-main-light p-3 mt-4">
+
+    <div class="form-item mt-1">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="abdalrhamanmahfouz@gmail.com" formControlName="email" class="form-control">
+        <div class="alert alert-danger p-1 " *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched ">
+            <p class="m-0" *ngIf="loginForm.get('email')?.getError('required')">Email is required. </p>
+            <p class="m-0"  *ngIf="loginForm.get('email')?.getError('email')"> Invalid email.</p>
+        </div>
+    </div>
+
+    <div class="form-item mt-1 mb-2">
+        <label for="password">Password</label>
+        <input [type]="changetype?'password':'text'" placeholder="Pa$$w0rd!!!" id="password" formControlName="password" class="form-control">
+        <span class="eyeicon position-absolute eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i> </span>
+        <div class="alert alert-danger p-1 " *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched ">
+            <p class="m-0" *ngIf="loginForm.get('password')?.getError('required')">Password is required. </p>
+            <p class="m-0"  *ngIf="loginForm.get('password')?.getError('pattern')"> Password should contains
+                at least one uppercase letter, one lowercase letter, one digit, and one non-alphanumeric character.</p>
+        </div>
+    </div>
+
+
+    <div class="d-flex spcial-reset">
+        <button *ngIf="!isLoding" [disabled]="loginForm.invalid" type="submit" class="main-btn">Login </button>
+        <span class="main-btn " *ngIf="isLoding"><i class="fas fa-spin fa-spinner"></i></span>
+
+        <a class="my-1 text-decoration-none ms-4 main-color fw-bold" routerLink="/Register">Don't have an account ? </a>
+
+        <a class="my-1 text-decoration-none ms-4 main-color fw-bold" routerLink="/Password-reset">Or Forgot Password ?</a>
+    </div>
+
+
+</form>

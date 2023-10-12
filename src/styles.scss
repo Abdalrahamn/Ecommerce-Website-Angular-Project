@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Montserrat+Alternates&display=swap");
+
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+
+body {
+  font-family: $font-family;
+  position: relative;
+
+  min-height: 100vh;
+}
+
+.rating-color {
+  color: $rating-color;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-main {
+  color: $main-color;
+}
+
+.text-main-light {
+  color: $light-color;
+}
+
+.bg-main {
+  background-color: $main-color !important;
+}
+
+.bg-main-light {
+  background-color: $light-color !important;
+}
+
+.main-btn {
+  border: unset;
+  cursor: pointer;
+  color: #fff !important;
+  background-color: $main-color !important;
+  padding: 4px 8px;
+  transition: background-color $main-transition;
+  border-radius: 5px;
+}
+
+.main-btn:hover {
+  background-color: #08e208;
+}
+
+.main-btn:disabled {
+  background-color: #067a066e !important;
+  color: #ffffff8e !important;
+  cursor: not-allowed;
+}
+.active-link {
+  background-color: $main-color;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+//Password Eyes ----------------------------------------------------------------
+.form-item {
+  position: relative;
+}
+
+.eyeicon {
+  position: absolute;
+  right: 12px;
+  top: 28px;
+  cursor: pointer;
+  color: $main-color !important;
+  font-size:20px;
+}
+
+.fixed-height{
+  height:250px;
+}
+.card{
+  --bs-card-border-color: #f1f0f0;
+}
+
+.myContainer{
+  max-width: 95%;
+  margin: 0 auto;   /* Center horizontally */
+  padding: 10px;    /* Add padding */
+}
+
+.prodBrdr{
+  transition: .5s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.btn-H{
+  position: relative;
+  bottom: -50px;
+  transition: .5s ease-in-out;    
+  opacity: 0;
+}
+
+.wishIcon{
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
+/* 
+.wishIcon:hover{
+  color: $main-color;
+}
+
+ */
+.prodBrdr:hover{
+  .btn-H{
+      bottom: -2px;
+      opacity: 1;
+  }
+  .wishIcon{
+      opacity: 1;
+  }
+  box-sizing: border-box; /* Ensures that border and padding don't affect element size */
+  outline: 1px solid #03d9ff; /* Example border style, width, and color */
+}
+
+.paddingTopBottom{
+  padding-top: 55px;
+  padding-bottom: 55px;
+  //padding-bottom: 430px;
+}
+
+footer{
+  position: absolute;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  color: $main-color;
+  font-family: $font-family;
+  z-index: 1;
+  
+}
+
+.main-color{
+  color: $main-color !important;
+}
+
+.active{
+  color: $main-color !important;
+}
+
+::placeholder {
+  color: rgb(223, 223, 223) !important;
+}
+
+
+@media screen and (max-width: 576px) {
+  .paddingTopBottom {
+    padding-bottom: 500px;
+  }
+  .spcial-reset{
+    display: flex;
+    flex-direction: column; 
+  }
+}

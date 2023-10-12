@@ -1,0 +1,29 @@
+<div *ngIf="!loading" class="w-75 mx-auto shadow bg-main-light p-3 my-4">
+    <h3>Shop cart</h3>
+    <h3 *ngIf="!cartData.totalCartPrice" class="h6 text-main" >Empty Cart</h3>
+    <button *ngIf="cartData.totalCartPrice" (click)="clearfromCart(cartData.totalCartPrice)" class="btn text-main p-0 m-0"> <i class="fas fa-trash"></i> Remove All</button>
+
+    <p *ngIf="cartData.totalCartPrice" class="text-main">Total Price : {{ cartData?.totalCartPrice }}</p>
+
+    <div class="row border-bottom py-2" *ngFor="let cart of cartData.products">
+        <div class="col-md-1">
+            <img class="w-100" [src]="cart.product.imageCover" [alt]="cart.product.name">
+        </div>
+        <div class="col-md-11 d-flex align-items-center justify-content-between">
+            <div>
+                <h4 class="h6">{{ cart.product.title }}</h4>
+                <p class="text-main ">Price: {{ cart.price }}</p>
+                <button (click)="removeFromCart(cart.product.id)" class="btn text-main p-0 m-0"> <i class="fas fa-trash"></i> Remove </button>
+            </div>
+            <div>
+                <button (click)="updateCart(cart.count + 1 , cart.product.id)" class="btn btn-sm border-success">+</button>
+                <span class="mx-2">{{ cart.count }}</span>
+                <button (click)="updateCart(cart.count - 1 , cart.product.id)" class="btn btn-sm border-success">-</button>
+            </div>
+        </div>
+    </div>
+    <button [routerLink]="['/payment' , cartData._id]" class="btn main-btn text-main py-2 mt-3"> Online Payment <img width="40" src="./assets/Images_assets/visa.svg" alt="">  </button>
+
+</div>
+
+<app-loader *ngIf="loading"></app-loader>
